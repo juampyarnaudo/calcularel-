@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Calcular el %</string>
+    <string name="tv1">Calcular el %</string>
+    <string name="et1">Ingresar el valor del producto</string>
+    <string name="tv2">Ingresar el valor del producto</string>
+    <string name="btn1">5%</string>
+    <string name="btn2">10%</string>
+    <string name="btn3">15%</string>
+    <string name="btn4">20%</string>
+    <string name="btn5">25%</string>
+    <string name="btn6">30%</string>
+    <string name="btn7">40%</string>
+    <string name="btn8">50%</string>
+</resources>
