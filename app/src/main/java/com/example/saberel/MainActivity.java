@@ -12,6 +12,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +36,21 @@ public class MainActivity extends AppCompatActivity {
         tv3 = (TextView) findViewById(R.id.tv3);
 
         et1.requestFocus();
+//        AdView adView = new AdView(this);
+//        adView.setAdSize(AdSize.BANNER);adView.setAdUnitId("ca-app-pub-3517612946554837/3997429499");
+// TODO: Add adView to your view hierarchy.
 
+//        AdView adView;
+//
+//        MobileAds.initialize(this, "ca-app-pub-3517612946554837~1973901384");
+////        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+////        });
+//        adView = findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        adView.loadAd(adRequest);
     }
 
     public void CalcularPorcentaje(double porcentaje){
