@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "577860436873",
+    "firebase_url": "https://calcular-el-porcentaje.firebaseio.com",
+    "project_id": "calcular-el-porcentaje",
+    "storage_bucket": "calcular-el-porcentaje.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577860436873:android:7be3aa723259dbd6299758",
+        "android_client_info": {
+          "package_name": "com.example.saberel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577860436873-92di82sbhd6t4di7gl372m0curr6usfr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.saberel",
+            "certificate_hash": "c7e052bfdd2391685ed3d8887b44c99fc59ca41f"
+          }
+        },
+        {
+          "client_id": "577860436873-3313le8iui21lh7h7s4v93ee1t18nmnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmoINrCWgx641vEd-c5V30GfHmURDGBAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577860436873-3313le8iui21lh7h7s4v93ee1t18nmnk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

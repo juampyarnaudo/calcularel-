@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -58,8 +56,9 @@ public class MainActivity extends AppCompatActivity {
             double resultado_5 = (Double.valueOf(et1.getText().toString())) * porcentaje;
             double totalMenosResultado = (Double.valueOf(et1.getText().toString())) * (1-porcentaje);
             double totalMasResultado = (Double.valueOf(et1.getText().toString())) * (1+porcentaje);
+//            tv2.setTextColor(Color.blue(3));
             tv2.setText("El Valor (%) es: $" + String.format("%.2f", resultado_5));
-            tv3.setText("El Descuento es: $" + valorinicial +" - $"+ String.format("%.2f", resultado_5) + " = $"+ String.format("%.2f", totalMenosResultado));
+            tv3.setText("El Descuento es: $" + valorinicial +" - $"+  String.format("%.2f", resultado_5) + " = $"+ String.format("%.2f", totalMenosResultado));
             tv4.setText("El Aumento es: $" + valorinicial +" + $"+ String.format("%.2f", resultado_5) + " = $"+ String.format("%.2f", totalMasResultado));
 
             et1.clearFocus();
@@ -92,5 +91,6 @@ public class MainActivity extends AppCompatActivity {
     public void btn_50 (View view){
         CalcularPorcentaje(0.50);
     }
+    public void btnBack (View view){finish();}
 
 }
