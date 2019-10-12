@@ -12,11 +12,11 @@
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:text="@string/tv1"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +28,7 @@
         android:ems="10"
         android:hint="@string/et1"
         android:inputType="numberDecimal"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -171,18 +171,20 @@
         app:layout_constraintStart_toEndOf="@+id/btn1"
         app:layout_constraintTop_toBottomOf="@+id/tv2" />
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="72dp"
         android:layout_height="78dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
+        android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toEndOf="@+id/tv1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_calculadora" />
 
-    <com.google.android.gms.ads.AdView
+        <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -191,7 +193,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn6"
+        app:layout_constraintVertical_bias="0.058" />
 
     <TextView
         android:id="@+id/tv4"
@@ -203,6 +207,20 @@
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv3" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="360dp"
+        android:layout_marginLeft="360dp"
+        android:onClick="btnBack"
+        android:text="salir"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,8 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 
 public class MainActivity extends AppCompatActivity {
+
+
     private EditText et1;
     private TextView tv2, tv3, tv4;
     private AdView mAdView;
@@ -27,22 +29,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        et1 = (EditText) findViewById(R.id.et1);
-        tv2 = (TextView) findViewById(R.id.tv2);
-        tv3 = (TextView) findViewById(R.id.tv3);
-        tv4 = (TextView) findViewById(R.id.tv4);
-
-        et1.requestFocus();
-
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);adView.setAdUnitId("ca-app-pub-3517612946554837/3997429499");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+
+        et1 = findViewById(R.id.et1);
+        tv2 = findViewById(R.id.tv2);
+        tv3 = findViewById(R.id.tv3);
+        tv4 = findViewById(R.id.tv4);
+
+        et1.requestFocus();
     }
 
 
@@ -58,9 +63,14 @@ public class MainActivity extends AppCompatActivity {
             double resultado_5 = (Double.valueOf(et1.getText().toString())) * porcentaje;
             double totalMenosResultado = (Double.valueOf(et1.getText().toString())) * (1-porcentaje);
             double totalMasResultado = (Double.valueOf(et1.getText().toString())) * (1+porcentaje);
-            tv2.setText("El Valor (%) es: $" + String.format("%.2f", resultado_5));
-            tv3.setText("El Descuento es: $" + valorinicial +" - $"+ String.format("%.2f", resultado_5) + " = $"+ String.format("%.2f", totalMenosResultado));
-            tv4.setText("El Aumento es: $" + valorinicial +" + $"+ String.format("%.2f", resultado_5) + " = $"+ String.format("%.2f", totalMasResultado));
+            String text = "<font color=#000000>El Valor (%) es: $</font> <font color=#000000>" + String.format("%.2f", resultado_5) +" </font>";
+            tv2.setText(Html.fromHtml(text));
+            String text2 = "<font color=#000000>El Descuento es: $</font>"+ valorinicial+" - <font color=#2ca919> $" + String.format("%.2f", resultado_5) +" </font>"  + " = $"+ String.format("%.2f", totalMenosResultado);
+            tv3.setText(Html.fromHtml(text2));
+            String text3 = "<font color=#000000>El Interés es: $</font>"+ valorinicial +" + <font color=#e70909> $" + String.format("%.2f", resultado_5) +" </font>"  + " = $"+ String.format("%.2f", totalMasResultado);
+            tv4.setText(Html.fromHtml(text3));
+
+
 
             et1.clearFocus();
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -70,9 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void btn_5 (View view){
         CalcularPorcentaje(0.05);
+
     }
     public void btn_10 (View view){
         CalcularPorcentaje(0.10);
+
     }
     public void btn_15 (View view){
         CalcularPorcentaje(0.15);
@@ -92,5 +104,6 @@ public class MainActivity extends AppCompatActivity {
     public void btn_50 (View view){
         CalcularPorcentaje(0.50);
     }
+    public void btnBack (View view){finish();}
 
 }
