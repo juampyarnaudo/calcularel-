@@ -184,7 +184,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_calculadora" />
 
+<<<<<<< HEAD
         <com.google.android.gms.ads.AdView
+=======
+    <com.google.android.gms.ads.AdView
+>>>>>>> color
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -195,7 +199,11 @@
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn6"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.058" />
+=======
+        app:layout_constraintVertical_bias="0.056" />
+>>>>>>> color
 
     <TextView
         android:id="@+id/tv4"
@@ -212,6 +220,7 @@
         android:id="@+id/btnBack"
         android:layout_width="50dp"
         android:layout_height="39dp"
+<<<<<<< HEAD
         android:layout_marginStart="360dp"
         android:layout_marginLeft="360dp"
         android:onClick="btnBack"
@@ -219,6 +228,11 @@
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+=======
+        android:onClick="btnBack"
+        android:text="salir"
+        android:textSize="8sp"
+>>>>>>> color
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

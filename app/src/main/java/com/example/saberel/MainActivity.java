@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -29,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
+=======
+
+        et1 = (EditText) findViewById(R.id.et1);
+        tv2 = (TextView) findViewById(R.id.tv2);
+        tv3 = (TextView) findViewById(R.id.tv3);
+        tv4 = (TextView) findViewById(R.id.tv4);
+
+        et1.requestFocus();
+
+>>>>>>> color
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -40,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+<<<<<<< HEAD
 
 
         et1 = findViewById(R.id.et1);
@@ -48,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         tv4 = findViewById(R.id.tv4);
 
         et1.requestFocus();
+=======
+>>>>>>> color
     }
 
 
@@ -63,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             double resultado_5 = (Double.valueOf(et1.getText().toString())) * porcentaje;
             double totalMenosResultado = (Double.valueOf(et1.getText().toString())) * (1-porcentaje);
             double totalMasResultado = (Double.valueOf(et1.getText().toString())) * (1+porcentaje);
+<<<<<<< HEAD
             String text = "<font color=#000000>El Valor (%) es: $</font> <font color=#000000>" + String.format("%.2f", resultado_5) +" </font>";
             tv2.setText(Html.fromHtml(text));
             String text2 = "<font color=#000000>El Descuento es: $</font>"+ valorinicial+" - <font color=#2ca919> $" + String.format("%.2f", resultado_5) +" </font>"  + " = $"+ String.format("%.2f", totalMenosResultado);
@@ -71,6 +84,12 @@ public class MainActivity extends AppCompatActivity {
             tv4.setText(Html.fromHtml(text3));
 
 
+=======
+//            tv2.setTextColor(Color.blue(3));
+            tv2.setText("El Valor (%) es: $" + String.format("%.2f", resultado_5));
+            tv3.setText("El Descuento es: $" + valorinicial +" - $"+  String.format("%.2f", resultado_5) + " = $"+ String.format("%.2f", totalMenosResultado));
+            tv4.setText("El Aumento es: $" + valorinicial +" + $"+ String.format("%.2f", resultado_5) + " = $"+ String.format("%.2f", totalMasResultado));
+>>>>>>> color
 
             et1.clearFocus();
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
