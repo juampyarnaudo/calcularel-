@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:577860436873:android:7be3aa723259dbd6299758",
         "android_client_info": {
-          "package_name": "com.example.saberel"
+          "package_name": "jp.juampi.saberelporcentaje2019"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "577860436873-92di82sbhd6t4di7gl372m0curr6usfr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.saberel",
+            "package_name": "jp.juampi.saberelporcentaje2019",
             "certificate_hash": "c7e052bfdd2391685ed3d8887b44c99fc59ca41f"
           }
         },
