@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -24,8 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private EditText et1;
     private TextView tv2, tv3, tv4;
     private AdView mAdView;
+    private InterstitialAd mInterstitialAd;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
 
+    @Override
+    public void onBackPressed() {
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -55,11 +62,12 @@ public class MainActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3517612946554837/4721035952");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
-
     public void CalcularPorcentaje(double porcentaje){
-        //Toast.makeText(this, et1.getText().toString().length(), Toast.LENGTH_SHORT).show();
         if(TextUtils.isEmpty(et1.getText().toString())) {
             et1.requestFocus();
             et1.setError("Por favor ingresar un valor");
@@ -170,6 +178,14 @@ public class MainActivity extends AppCompatActivity {
         btn7.setTextColor(Color.parseColor("#000000"));
         btn8.setTextColor(Color.parseColor("#91b029"));
     }
-    public void btnBack (View view){finish();}
+    public void btnBack (View view){
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                    finish();
+                } else {
+                    finish();
+                }
+
+    }
 
 }

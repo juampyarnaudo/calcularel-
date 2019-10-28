@@ -5,11 +5,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29.0.2"
     defaultConfig {
-<<<<<<< HEAD
         applicationId "ar.juampiarnaudo.saberelporcentaje"
-=======
-        applicationId "jp.juampi.saberelporcentaje2019"
->>>>>>> App2.0
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 2
