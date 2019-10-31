@@ -10,8 +10,7 @@
     tools:context=".MainActivity">
 
 
-
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -98,7 +97,9 @@
                     android:layout_marginStart="32dp"
                     android:onClick="btn_5"
                     android:text="@string/btn1"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
 
                 <Button
                     android:id="@+id/btn2"
@@ -107,7 +108,9 @@
                     android:layout_marginStart="12dp"
                     android:onClick="btn_10"
                     android:text="@string/btn2"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
 
                 <Button
                     android:id="@+id/btn3"
@@ -116,8 +119,9 @@
                     android:layout_marginStart="12dp"
                     android:onClick="btn_15"
                     android:text="@string/btn3"
-                    android:textSize="20dp" />
-
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
                 <Button
                     android:id="@+id/btn4"
                     android:layout_width="match_parent"
@@ -125,13 +129,16 @@
                     android:layout_marginStart="12dp"
                     android:onClick="btn_20"
                     android:text="@string/btn4"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
                 android:orientation="horizontal">
 
@@ -142,7 +149,9 @@
                     android:layout_marginStart="32dp"
                     android:onClick="btn_25"
                     android:text="@string/btn5"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
 
                 <Button
                     android:id="@+id/btn6"
@@ -151,7 +160,9 @@
                     android:layout_marginStart="12dp"
                     android:onClick="btn_30"
                     android:text="@string/btn6"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
 
                 <Button
                     android:id="@+id/btn7"
@@ -160,7 +171,9 @@
                     android:layout_marginStart="12dp"
                     android:onClick="btn_40"
                     android:text="@string/btn7"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
 
                 <Button
                     android:id="@+id/btn8"
@@ -169,7 +182,9 @@
                     android:layout_marginStart="12dp"
                     android:onClick="btn_50"
                     android:text="@string/btn8"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:background="@drawable/material_button"
+                    />
 
             </LinearLayout>
 
@@ -181,10 +196,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:onClick="btnBack"
         android:text="salir"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textColor="@color/md_black_1000"
+        android:background="@drawable/material_btnsalir"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,6 +15,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
@@ -27,11 +30,29 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv2, tv3, tv4;
     private AdView mAdView;
     private InterstitialAd mInterstitialAd;
+    int contador;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
 
     @Override
     public void onBackPressed() {
+        if (contador==0){
+            Toast.makeText(this, "Presione de nuevo para salir", Toast.LENGTH_SHORT).show();
+            contador++;
+        }else   {
+            super.onBackPressed();
+        }
+        new CountDownTimer(3000,1000){
 
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                contador = 0;
+            }
+        }.start();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         btn6.setTextColor(Color.parseColor("#000000"));
         btn7.setTextColor(Color.parseColor("#000000"));
         btn8.setTextColor(Color.parseColor("#000000"));
+
     }
     public void btn_10 (View view){
         CalcularPorcentaje(0.10);
