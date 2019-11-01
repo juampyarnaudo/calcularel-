@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Calcular el %</string>
     <string name="tv1">Calcular el %</string>
-    <string name="et1">Ingresar el valor del producto</string>
-    <string name="tv2">Ingresar el valor del producto</string>
+    <string name="et1">Ingresar el valor</string>
+    <string name="tv2">Ingresar el valor que desea calcular...</string>
     <string name="btn1">5%</string>
     <string name="btn2">10%</string>
     <string name="btn3">15%</string>

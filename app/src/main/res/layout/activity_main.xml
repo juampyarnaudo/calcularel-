@@ -1,214 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="clip_horizontal|center"
-            android:orientation="vertical">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_percent="0.0" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|start"
-                android:gravity="center|top"
-                android:orientation="horizontal">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_percent="0.48" />
 
-                <TextView
-                    android:id="@+id/tv1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="44dp"
-                    android:text="@string/tv1"
-                    android:textSize="36sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_percent="0.68" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="72dp"
-                    android:layout_height="78dp"
-                    android:layout_margin="15dp"
-                    android:contentDescription="TODO"
-                    ads:srcCompat="@mipmap/ic_calculadora" />
-            </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_percent="0.8" />
 
-            <EditText
-                android:id="@+id/et1"
-                android:layout_width="330dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="40dp"
-                android:ems="10"
-                android:hint="@string/et1"
-                android:inputType="numberDecimal"
-                android:textSize="18sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ads:layout_constraintGuide_percent="0.0" />
 
-            <TextView
-                android:id="@+id/tv2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:numeric="decimal"
-                android:textSize="15sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ads:layout_constraintGuide_percent="0.25" />
 
-            <TextView
-                android:id="@+id/tv3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:textSize="15sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ads:layout_constraintGuide_percent="0.5" />
 
-            <TextView
-                android:id="@+id/tv4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:textSize="15sp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ads:layout_constraintGuide_percent="0.75" />
 
-        </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        ads:layout_constraintGuide_percent="1.0" />
 
-        <LinearLayout
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        ads:layout_constraintGuide_percent="0.6" />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-15dp"
-            android:gravity="center"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/tv1"
+        android:textSize="36sp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="@string/et1"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/tv1" />
 
-                <Button
-                    android:id="@+id/btn1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="32dp"
-                    android:onClick="btn_5"
-                    android:text="@string/btn1"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:numeric="decimal"
+        android:textSize="15sp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/et1" />
 
-                <Button
-                    android:id="@+id/btn2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:onClick="btn_10"
-                    android:text="@string/btn2"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="15sp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/tv2" />
 
-                <Button
-                    android:id="@+id/btn3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:onClick="btn_15"
-                    android:text="@string/btn3"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
-                <Button
-                    android:id="@+id/btn4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:onClick="btn_20"
-                    android:text="@string/btn4"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="15sp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/tv3" />
 
-            </LinearLayout>
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_5"
+        android:text="@string/btn1"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline9"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline1"
+        ads:layout_constraintStart_toStartOf="@+id/guideline"
+        ads:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_10"
+        android:text="@string/btn2"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline9"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline2"
+        ads:layout_constraintStart_toStartOf="@+id/guideline1"
+        ads:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-                <Button
-                    android:id="@+id/btn5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="32dp"
-                    android:onClick="btn_25"
-                    android:text="@string/btn5"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_15"
+        android:text="@string/btn3"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline9"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline3"
+        ads:layout_constraintStart_toStartOf="@+id/guideline2"
+        ads:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-                <Button
-                    android:id="@+id/btn6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:onClick="btn_30"
-                    android:text="@string/btn6"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_20"
+        android:text="@string/btn4"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline9"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline4"
+        ads:layout_constraintStart_toStartOf="@+id/guideline3"
+        ads:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-                <Button
-                    android:id="@+id/btn7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:onClick="btn_40"
-                    android:text="@string/btn7"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_25"
+        android:text="@string/btn5"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline7"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline1"
+        ads:layout_constraintStart_toStartOf="@+id/guideline"
+        ads:layout_constraintTop_toTopOf="@+id/guideline9" />
 
-                <Button
-                    android:id="@+id/btn8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:onClick="btn_50"
-                    android:text="@string/btn8"
-                    android:textSize="20dp"
-                    android:background="@drawable/material_button"
-                    />
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_30"
+        android:text="@string/btn6"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline7"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline2"
+        ads:layout_constraintStart_toStartOf="@+id/guideline1"
+        ads:layout_constraintTop_toTopOf="@+id/guideline9" />
 
-            </LinearLayout>
+    <Button
+        android:id="@+id/btn7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_40"
+        android:text="@string/btn7"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline7"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline3"
+        ads:layout_constraintStart_toStartOf="@+id/guideline2"
+        ads:layout_constraintTop_toTopOf="@+id/guideline9" />
 
-        </LinearLayout>
-
+    <Button
+        android:id="@+id/btn8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/material_button"
+        android:gravity="center"
+        android:onClick="btn_50"
+        android:text="@string/btn8"
+        android:textSize="20dp"
+        ads:layout_constraintBottom_toTopOf="@+id/guideline7"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline4"
+        ads:layout_constraintStart_toStartOf="@+id/guideline3"
+        ads:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/material_btnsalir"
         android:onClick="btnBack"
-        android:text="salir"
-        android:textSize="14sp"
+        android:text="Salir"
         android:textColor="@color/md_black_1000"
-        android:background="@drawable/material_btnsalir"/>
+        android:textSize="14sp"
+        ads:layout_constraintBottom_toTopOf="@+id/adView"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="69dp"
+        android:layout_height="85dp"
+        ads:layout_constraintBottom_toTopOf="@+id/et1"
+        ads:layout_constraintStart_toEndOf="@+id/tv1"
+        ads:layout_constraintTop_toTopOf="@+id/guideline5"
+        ads:srcCompat="@mipmap/ic_launcher_foreground"
+        />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id" />
+        ads:adUnitId="@string/banner_ad_unit_id"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toStartOf="@+id/guideline4"
+        ads:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

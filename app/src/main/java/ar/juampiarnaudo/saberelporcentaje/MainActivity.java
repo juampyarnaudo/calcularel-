@@ -34,36 +34,15 @@ public class MainActivity extends AppCompatActivity {
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
 
     @Override
-    public void onBackPressed() {
-        if (contador==0){
-            Toast.makeText(this, "Presione de nuevo para salir", Toast.LENGTH_SHORT).show();
-            contador++;
-        }else   {
-            super.onBackPressed();
-        }
-        new CountDownTimer(3000,1000){
-
-            @Override
-            public void onTick(long l) {
-
-            }
-
-            @Override
-            public void onFinish() {
-                contador = 0;
-            }
-        }.start();
-    }
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et1 = (EditText) findViewById(R.id.et1);
-        tv2 = (TextView) findViewById(R.id.tv2);
-        tv3 = (TextView) findViewById(R.id.tv3);
-        tv4 = (TextView) findViewById(R.id.tv4);
+        et1 = findViewById(R.id.et1);
+        tv2 = findViewById(R.id.tv2);
+        tv3 = findViewById(R.id.tv3);
+        tv4 = findViewById(R.id.tv4);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
@@ -209,5 +188,31 @@ public class MainActivity extends AppCompatActivity {
                 }
 
     }
+    @Override
+    public void onBackPressed() {
+        if (contador==0){
+            Toast.makeText(this, "Presionar nuevamente para salir...", Toast.LENGTH_SHORT).show();
+            contador++;
+        }else   {
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+                finish();
+            } else {
+                finish();
+//        super.onBackPressed();
+            }
+            new CountDownTimer(3000,1000){
 
+                @Override
+                public void onTick(long l) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    contador = 0;
+                }
+            }.start();
+        }
+    }
 }
