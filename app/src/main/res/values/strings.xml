@@ -12,5 +12,9 @@
     <string name="btn7">40%</string>
     <string name="btn8">50%</string>
     <string name="banner_ad_unit_id">ca-app-pub-3517612946554837/1860727452</string>
+    <string name="text_btn_close_app">Salir</string>
+    <string name="todo">TODO</string>
+    <string name="text_close_app">Presionar nuevamente para salir...</string>
+    <string name="text_empty_field">Por favor ingresar un valor</string>
 
 </resources>

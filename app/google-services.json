@@ -8,18 +8,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:577860436873:android:7be3aa723259dbd6299758",
+        "mobilesdk_app_id": "1:577860436873:android:4c5d4ea8ddc9c22d299758",
         "android_client_info": {
           "package_name": "ar.juampiarnaudo.saberelporcentaje"
         }
       },
       "oauth_client": [
         {
-          "client_id": "577860436873-92di82sbhd6t4di7gl372m0curr6usfr.apps.googleusercontent.com",
+          "client_id": "577860436873-ffi5ual8h1ncc3iev0h74nvar3g1r393.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "ar.juampiarnaudo.saberelporcentaje",
-            "certificate_hash": "c7e052bfdd2391685ed3d8887b44c99fc59ca41f"
+            "certificate_hash": "b6c011ea64bc7388f8990d5d52dec198689c56fe"
           }
         },
         {

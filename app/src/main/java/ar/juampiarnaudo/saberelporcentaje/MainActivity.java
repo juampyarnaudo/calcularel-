@@ -1,21 +1,19 @@
 package ar.juampiarnaudo.saberelporcentaje;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -24,14 +22,24 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class MainActivity extends AppCompatActivity {
+    private static final double PERCENTAGE_5 = 0.05;
+    private static final double PERCENTAGE_10 = 0.10;
+    private static final double PERCENTAGE_15 = 0.15;
+    private static final double PERCENTAGE_20 = 0.20;
+    private static final double PERCENTAGE_25 = 0.25;
+    private static final double PERCENTAGE_30 = 0.30;
+    private static final double PERCENTAGE_40 = 0.40;
+    private static final double PERCENTAGE_50 = 0.50;
+
     private EditText et1;
     private TextView tv2, tv3, tv4;
-    private AdView mAdView;
     private InterstitialAd mInterstitialAd;
-    int contador;
-    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8;
+    private boolean mIsSecondTimePressed;
+    private Button mBtnPercentage_5, mBtnPercentage_10, mBtnPercentage_15
+            , mBtnPercentage_20, mBtnPercentage_25, mBtnPercentage_30
+            , mBtnPercentage_40, mBtnPercentage_50, mBtnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,27 +47,54 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initViews();
+        initMobileAds();
+    }
+
+    private void initViews(){
+
         et1 = findViewById(R.id.et1);
         tv2 = findViewById(R.id.tv2);
         tv3 = findViewById(R.id.tv3);
         tv4 = findViewById(R.id.tv4);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
-        btn5 = findViewById(R.id.btn5);
-        btn6 = findViewById(R.id.btn6);
-        btn7 = findViewById(R.id.btn7);
-        btn8 = findViewById(R.id.btn8);
+
+        mBtnBack = findViewById(R.id.btnBack);
+        mBtnBack.setOnClickListener(this);
+
+        mBtnPercentage_5 = findViewById(R.id.btn1);
+        mBtnPercentage_5.setOnClickListener(this);
+
+        mBtnPercentage_10 = findViewById(R.id.btn2);
+        mBtnPercentage_10.setOnClickListener(this);
+
+        mBtnPercentage_15 = findViewById(R.id.btn3);
+        mBtnPercentage_15.setOnClickListener(this);
+
+        mBtnPercentage_20 = findViewById(R.id.btn4);
+        mBtnPercentage_20.setOnClickListener(this);
+
+        mBtnPercentage_25 = findViewById(R.id.btn5);
+        mBtnPercentage_25.setOnClickListener(this);
+
+        mBtnPercentage_30 = findViewById(R.id.btn6);
+        mBtnPercentage_30.setOnClickListener(this);
+
+        mBtnPercentage_40 = findViewById(R.id.btn7);
+        mBtnPercentage_40.setOnClickListener(this);
+
+        mBtnPercentage_50 = findViewById(R.id.btn8);
+        mBtnPercentage_50.setOnClickListener(this);
 
         et1.requestFocus();
+    }
 
+    private void initMobileAds(){
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        mAdView = findViewById(R.id.adView);
+        AdView mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         mInterstitialAd = new InterstitialAd(this);
@@ -67,152 +102,135 @@ public class MainActivity extends AppCompatActivity {
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
-    public void CalcularPorcentaje(double porcentaje){
-        if(TextUtils.isEmpty(et1.getText().toString())) {
-            et1.requestFocus();
-            et1.setError("Por favor ingresar un valor");
-
-        }
-        else{
-            double valorinicial = (Double.valueOf(et1.getText().toString()));
-            double resultado_5 = (Double.valueOf(et1.getText().toString())) * porcentaje;
-            double totalMenosResultado = (Double.valueOf(et1.getText().toString())) * (1-porcentaje);
-            double totalMasResultado = (Double.valueOf(et1.getText().toString())) * (1+porcentaje);
-           String text = "<font color=#000000>El Valor (%) es: $</font> <font color=#000000>" + String.format("%.2f", resultado_5) +" </font>";
-            tv2.setText(Html.fromHtml(text));
-            String text2 = "<font color=#000000>El Descuento es: $</font>"+ valorinicial+" - <font color=#2ca919> $" + String.format("%.2f", resultado_5) +" </font>"  + " = $"+ String.format("%.2f", totalMenosResultado);
-            tv3.setText(Html.fromHtml(text2));
-            String text3 = "<font color=#000000>El Interés es: $</font>"+ valorinicial +" + <font color=#e70909> $" + String.format("%.2f", resultado_5) +" </font>"  + " = $"+ String.format("%.2f", totalMasResultado);
-            tv4.setText(Html.fromHtml(text3));
-            et1.clearFocus();
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(et1.getWindowToken(),0);
-        }
-    }
-
-    public void btn_5 (View view){
-        CalcularPorcentaje(0.05);
-        btn1.setTextColor(Color.parseColor("#91b029"));
-        btn2.setTextColor(Color.parseColor("#000000"));
-        btn3.setTextColor(Color.parseColor("#000000"));
-        btn4.setTextColor(Color.parseColor("#000000"));
-        btn5.setTextColor(Color.parseColor("#000000"));
-        btn6.setTextColor(Color.parseColor("#000000"));
-        btn7.setTextColor(Color.parseColor("#000000"));
-        btn8.setTextColor(Color.parseColor("#000000"));
-
-    }
-    public void btn_10 (View view){
-        CalcularPorcentaje(0.10);
-        btn1.setTextColor(Color.parseColor("#000000"));
-        btn2.setTextColor(Color.parseColor("#91b029"));
-        btn3.setTextColor(Color.parseColor("#000000"));
-        btn4.setTextColor(Color.parseColor("#000000"));
-        btn5.setTextColor(Color.parseColor("#000000"));
-        btn6.setTextColor(Color.parseColor("#000000"));
-        btn7.setTextColor(Color.parseColor("#000000"));
-        btn8.setTextColor(Color.parseColor("#000000"));
-    }
-    public void btn_15 (View view){
-        CalcularPorcentaje(0.15);
-        btn1.setTextColor(Color.parseColor("#000000"));
-        btn2.setTextColor(Color.parseColor("#000000"));
-        btn3.setTextColor(Color.parseColor("#91b029"));
-        btn4.setTextColor(Color.parseColor("#000000"));
-        btn5.setTextColor(Color.parseColor("#000000"));
-        btn6.setTextColor(Color.parseColor("#000000"));
-        btn7.setTextColor(Color.parseColor("#000000"));
-        btn8.setTextColor(Color.parseColor("#000000"));
-    }
-    public void btn_20 (View view){
-        CalcularPorcentaje(0.20);
-        btn1.setTextColor(Color.parseColor("#000000"));
-        btn2.setTextColor(Color.parseColor("#000000"));
-        btn3.setTextColor(Color.parseColor("#000000"));
-        btn4.setTextColor(Color.parseColor("#91b029"));
-        btn5.setTextColor(Color.parseColor("#000000"));
-        btn6.setTextColor(Color.parseColor("#000000"));
-        btn7.setTextColor(Color.parseColor("#000000"));
-        btn8.setTextColor(Color.parseColor("#000000"));
-    }
-    public void btn_25 (View view){
-        CalcularPorcentaje(0.25);
-        btn1.setTextColor(Color.parseColor("#000000"));
-        btn2.setTextColor(Color.parseColor("#000000"));
-        btn3.setTextColor(Color.parseColor("#000000"));
-        btn4.setTextColor(Color.parseColor("#000000"));
-        btn5.setTextColor(Color.parseColor("#91b029"));
-        btn6.setTextColor(Color.parseColor("#000000"));
-        btn7.setTextColor(Color.parseColor("#000000"));
-        btn8.setTextColor(Color.parseColor("#000000"));
-    }
-    public void btn_30 (View view){
-        CalcularPorcentaje(0.30);
-        btn1.setTextColor(Color.parseColor("#000000"));
-        btn2.setTextColor(Color.parseColor("#000000"));
-        btn3.setTextColor(Color.parseColor("#000000"));
-        btn4.setTextColor(Color.parseColor("#000000"));
-        btn5.setTextColor(Color.parseColor("#000000"));
-        btn6.setTextColor(Color.parseColor("#91b029"));
-        btn7.setTextColor(Color.parseColor("#000000"));
-        btn8.setTextColor(Color.parseColor("#000000"));
-    }
-    public void btn_40 (View view){
-        CalcularPorcentaje(0.40);
-        btn1.setTextColor(Color.parseColor("#000000"));
-        btn2.setTextColor(Color.parseColor("#000000"));
-        btn3.setTextColor(Color.parseColor("#000000"));
-        btn4.setTextColor(Color.parseColor("#000000"));
-        btn5.setTextColor(Color.parseColor("#000000"));
-        btn6.setTextColor(Color.parseColor("#000000"));
-        btn7.setTextColor(Color.parseColor("#91b029"));
-        btn8.setTextColor(Color.parseColor("#000000"));
-    }
-    public void btn_50 (View view){
-        CalcularPorcentaje(0.50);
-        btn1.setTextColor(Color.parseColor("#000000"));
-        btn2.setTextColor(Color.parseColor("#000000"));
-        btn3.setTextColor(Color.parseColor("#000000"));
-        btn4.setTextColor(Color.parseColor("#000000"));
-        btn5.setTextColor(Color.parseColor("#000000"));
-        btn6.setTextColor(Color.parseColor("#000000"));
-        btn7.setTextColor(Color.parseColor("#000000"));
-        btn8.setTextColor(Color.parseColor("#91b029"));
-    }
-    public void btnBack (View view){
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                    finish();
-                } else {
-                    finish();
-                }
-
-    }
     @Override
-    public void onBackPressed() {
-        if (contador==0){
-            Toast.makeText(this, "Presionar nuevamente para salir...", Toast.LENGTH_SHORT).show();
-            contador++;
-        }else   {
-            if (mInterstitialAd.isLoaded()) {
+    public void onClick(View v) {
+
+        if (v == mBtnPercentage_5){
+            configureAllPercentageBtn(PERCENTAGE_5);
+        }else if (v == mBtnPercentage_10){
+            configureAllPercentageBtn(PERCENTAGE_10);
+        }else if (v == mBtnPercentage_15){
+            configureAllPercentageBtn(PERCENTAGE_15);
+        }else if (v == mBtnPercentage_20){
+            configureAllPercentageBtn(PERCENTAGE_20);
+        }else if (v == mBtnPercentage_25){
+            configureAllPercentageBtn(PERCENTAGE_25);
+        }else if (v == mBtnPercentage_30){
+            configureAllPercentageBtn(PERCENTAGE_30);
+        }else if (v == mBtnPercentage_40){
+            configureAllPercentageBtn(PERCENTAGE_40);
+        }else if (v == mBtnPercentage_50){
+            configureAllPercentageBtn(PERCENTAGE_50);
+        }else if (v == mBtnBack){
+            if (mInterstitialAd.isLoaded()){
                 mInterstitialAd.show();
                 finish();
-            } else {
+            } else
                 finish();
-//        super.onBackPressed();
-            }
-            new CountDownTimer(3000,1000){
-
-                @Override
-                public void onTick(long l) {
-
-                }
-
-                @Override
-                public void onFinish() {
-                    contador = 0;
-                }
-            }.start();
         }
     }
+
+    private void configureAllPercentageBtn(double percentage){
+
+        configureBlackAllTextBtn();
+
+        if (percentage == PERCENTAGE_5){
+            mBtnPercentage_5.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+        }else if (percentage == PERCENTAGE_10){
+            mBtnPercentage_10.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+
+        }else if (percentage == PERCENTAGE_15){
+            mBtnPercentage_15.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+
+        }else if (percentage == PERCENTAGE_20){
+            mBtnPercentage_20.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+
+        }else if (percentage == PERCENTAGE_25){
+            mBtnPercentage_25.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+
+        }else if (percentage == PERCENTAGE_30){
+            mBtnPercentage_30.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+
+        }else if (percentage == PERCENTAGE_40){
+            mBtnPercentage_40.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+
+        }else {//PERCENTAGE_50
+            mBtnPercentage_50.setTextColor(getResources().getColor(R.color.color_btn_percentage_selected));
+        }
+
+        CalcularPorcentaje(percentage);
+    }
+
+    private void configureBlackAllTextBtn(){
+        mBtnPercentage_5.setTextColor(getResources().getColor(R.color.md_black_1000));
+        mBtnPercentage_10.setTextColor(getResources().getColor(R.color.md_black_1000));
+        mBtnPercentage_15.setTextColor(getResources().getColor(R.color.md_black_1000));
+        mBtnPercentage_20.setTextColor(getResources().getColor(R.color.md_black_1000));
+        mBtnPercentage_25.setTextColor(getResources().getColor(R.color.md_black_1000));
+        mBtnPercentage_30.setTextColor(getResources().getColor(R.color.md_black_1000));
+        mBtnPercentage_40.setTextColor(getResources().getColor(R.color.md_black_1000));
+        mBtnPercentage_50.setTextColor(getResources().getColor(R.color.md_black_1000));
+    }
+
+    private void CalcularPorcentaje(double percentage){
+        if(TextUtils.isEmpty(et1.getText().toString())) {
+            et1.requestFocus();
+            et1.setError(getResources().getString(R.string.text_empty_field));
+
+        } else{
+            double valorinicial = (Double.valueOf(et1.getText().toString()));
+            double resultado_5 = (Double.valueOf(et1.getText().toString())) * percentage;
+            double totalMenosResultado = (Double.valueOf(et1.getText().toString())) * (1-percentage);
+            double totalMasResultado = (Double.valueOf(et1.getText().toString())) * (1+percentage);
+            String text = "<font color=#000000>El Valor (%) es: $</font> <font color=#000000>"
+                    + String.format("%.2f", resultado_5) +" </font>";
+            tv2.setText(Html.fromHtml(text));
+
+            String text2 = "<font color=#000000>El Descuento es: $</font>"
+                    + valorinicial+" - <font color=#2ca919> $" + String.format("%.2f", resultado_5)
+                    +" </font>"  + " = $"+ String.format("%.2f", totalMenosResultado);
+            tv3.setText(Html.fromHtml(text2));
+
+            String text3 = "<font color=#000000>El Interés es: $</font>"+ valorinicial
+                    +" + <font color=#e70909> $" + String.format("%.2f", resultado_5)
+                    +" </font>"  + " = $"+ String.format("%.2f", totalMasResultado);
+            tv4.setText(Html.fromHtml(text3));
+
+            et1.clearFocus();
+            InputMethodManager inputMethodManager = (InputMethodManager)
+                    getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+            if (inputMethodManager!=null)
+                inputMethodManager.hideSoftInputFromWindow(et1.getWindowToken(),0);
+        }
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        if (mIsSecondTimePressed){
+            if (mInterstitialAd.isLoaded())
+                mInterstitialAd.show();
+
+            finish();
+            initCounter();
+        }else {
+            Toast.makeText(this, getResources().getString(R.string.text_close_app), Toast.LENGTH_SHORT).show();
+            mIsSecondTimePressed = true;
+        }
+    }
+
+    private void initCounter(){
+
+        new CountDownTimer(3000,1000){
+            @Override
+            public void onTick(long l) { }
+            @Override
+            public void onFinish() { mIsSecondTimePressed = false; }
+
+        }.start();
+    }
+
+
 }

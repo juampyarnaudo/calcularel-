@@ -2,9 +2,9 @@
 <resources>
     <color name="colorPrimary">#00ACC1</color>
     <color name="colorPrimaryDark">#00838F</color>
-    <color name="colorAccent">#FF3D00</color>
+    <color name="colorAccent">#B3E5FC</color>
 
-
+    <color name="color_btn_percentage_selected">#91b029</color>
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>

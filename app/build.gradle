@@ -6,10 +6,10 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "ar.juampiarnaudo.saberelporcentaje"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
-        versionCode 4
-        versionName "4.0"
+        versionCode 5
+        versionName "1.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,4 +28,5 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.android.gms:play-services-ads:18.2.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }
